@@ -1,0 +1,15 @@
+{% extends "customer/index.html" %}
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-10 col-sm-12 col-lg-8 text-center">
+            <h1 class="display-3">Request for payment has been recieved</h1>
+            <p class="lead">We have sent a prompt on the number. Just enter pin to verify</p>
+            <p class="lead">If you have not recieved the prompt, please contact us</p>
+            <p class="lead">Thank you for using our service</p>
+            <p>Head back to the <a href="{% url 'home' %}">Homepage</a></p>
+        </div>
+    </div>
+</div>
+  
+{% endblock content %}
