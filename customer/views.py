@@ -124,13 +124,11 @@ class OrderConfirmation(View):
     def post(self, request, pk):
         order = OrderModel.objects.get(pk=pk)
         phone_number = request.POST.get('formId1')
-        number=[]
-        number.append(phone_number)
         total = int(order.price)  
         # sending the prompt to the user
         cl = MpesaClient()
         # Use a Safaricom phone number that you have access to, for you to be able to view the prompt.
-        phone_number = number
+        phone_number = phone_number
         amount = total
         account_reference = 'reference'
         transaction_desc = 'Description'
