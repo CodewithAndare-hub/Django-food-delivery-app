@@ -124,7 +124,8 @@ class OrderConfirmation(View):
     def post(self, request, pk):
         order = OrderModel.objects.get(pk=pk)
         phone_number = request.POST.get('formId1')
-        number='{phone_number}'
+        number=[]
+        number.append(phone_number)
         total = int(order.price)  
         # sending the prompt to the user
         cl = MpesaClient()
