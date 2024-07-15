@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django_daraja',    
+    'django_daraja',  
 ]
 
 SITE_ID = 1
