@@ -4,8 +4,8 @@ from django.views import View
 from.models import MenuItem, OrderModel
 from django.db.models import Q
 from django.core.mail import send_mail
-from django.http import HttpResponse
 from django_daraja.mpesa.core import MpesaClient
+from django.contrib import messages
 
 # Create your views here.
 class HomePage(View):
@@ -64,6 +64,10 @@ class Order(View):
         for item in order_items['items']:
             price += item['price']
             item_ids.append(item['id'])
+        if not order_items['items']:
+        # Redirect back to the order page with an error message
+            messages.error(request, 'Please select at least one food item.')
+            return redirect('order')
         order = OrderModel.objects.create(
             price=price,
             first_name=first_name,
